@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MetaLearn - النتائج</title>
+  <style>
+    body {
+      background-color: #e8f5e9;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #2e7d32;
+    }
+
+    .answers {
+      background: white;
+      padding: 20px;
+      margin-top: 30px;
+      border-radius: 10px;
+      text-align: left;
+      display: inline-block;
+    }
+
+    .btn {
+      background-color: #388e3c;
+      color: white;
+      border: none;
+      padding: 12px 25px;
+      font-size: 18px;
+      margin-top: 30px;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background-color: #1b5e20;
+    }
+
+    .eye-icon {
+      width: 100px;
+      margin-top: 20px;
+      animation: blink 2s infinite;
+    }
+
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.5; }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>✅ تم إرسال الأجوبة بنجاح!</h1>
+  <p>شكراً لمشاركتك في منصة MetaLearn.</p>
+
+  <div class="answers" id="showAnswers">
+    <!-- الإجابات غادي تظهر هنا -->
+  </div>
+
+  <br>
+  <img src="https://i.imgur.com/dS4Qlqz.png" alt="Eye Icon" class="eye-icon"><br>
+  <button class="btn" onclick="logout()">👁️ Log out بالبصمة البصرية</button>
+
+  <script>
+    // عرض الأجوبة
+    const answers = JSON.parse(localStorage.getItem("answers"));
+    const div = document.getElementById("showAnswers");
+    if (answers) {
+      div.innerHTML = `
+        <p><strong>1. الجواب المختار:</strong> ${answers.q1 || "لا شيء"}</p>
+        <p><strong>2. الجواب المختار:</strong> ${answers.q2 || "لا شيء"}</p>
+        <p><strong>3. الجواب التحريري:</strong><br>${answers.q3 || "فارغ"}</p>
+      `;
+    } else {
+      div.innerHTML = "<p>❌ لا توجد أجوبة مسجلة.</p>";
+    }
+
+    function logout() {
+      alert("تم تسجيل الخروج بنجاح 👁️");
+      window.location.href = "index.html";
+    }
+  </script>
+
+</body>
+</html>

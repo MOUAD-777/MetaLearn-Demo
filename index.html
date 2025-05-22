@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>MetaLearn - Eye Scan Login</title>
+  <style>
+    body {
+      background-color: #101720;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding-top: 100px;
+    }
+    .eye-scan {
+      width: 150px;
+      margin: 20px auto;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); opacity: 0.6; }
+      50% { transform: scale(1.1); opacity: 1; }
+      100% { transform: scale(1); opacity: 0.6; }
+    }
+    .btn {
+      background-color: #00bcd4;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-size: 18px;
+      border-radius: 10px;
+      cursor: pointer;
+      margin-top: 30px;
+    }
+    .btn:hover {
+      background-color: #0097a7;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>مرحبا بك في منصة MetaLearn</h1>
+  <p>يرجى إجراء مسح العين للولوج إلى الامتحان</p>
+  <img src="https://i.imgur.com/dS4Qlqz.png" alt="Eye Scan" class="eye-scan">
+  <br>
+  <button class="btn" onclick="startExam()">مسح العين والدخول</button>
+
+  <script>
+    function startExam() {
+      window.location.href = "exam.html";
+    }
+  </script>
+
+</body>
+</html>
